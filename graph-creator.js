@@ -38,7 +38,8 @@ document.onload = (function(d3, saveAs, Blob, undefined){
       .attr('markerHeight', 3.5)
       .attr('orient', 'auto')
       .append('svg:path')
-      .attr('d', 'M0,-5L10,0L0,5');
+      .attr('d', 'M0,0');
+      // .attr('d', 'M0,-5L10,0L0,5');
 
     // define arrow markers for leading arrow
     defs.append('svg:marker')
@@ -49,7 +50,8 @@ document.onload = (function(d3, saveAs, Blob, undefined){
       .attr('markerHeight', 3.5)
       .attr('orient', 'auto')
       .append('svg:path')
-      .attr('d', 'M0,-5L10,0L0,5');
+      .attr('d', 'M0,0');
+      // .attr('d', 'M0,-5L10,0L0,5');
 
     thisGraph.svg = svg;
     thisGraph.svgG = svg.append("g")
@@ -430,7 +432,7 @@ document.onload = (function(d3, saveAs, Blob, undefined){
     } else if (state.graphMouseDown && d3.event.shiftKey){
       // clicked not dragged from svg
       var xycoords = d3.mouse(thisGraph.svgG.node()),
-          d = {id: thisGraph.idct++, title: consts.defaultTitle, x: xycoords[0], y: xycoords[1]};
+          d = {id: thisGraph.idct++, title: String(thisGraph.idct-1), x: xycoords[0], y: xycoords[1]};
       thisGraph.nodes.push(d);
       thisGraph.updateGraph();
       // make title of text immediently editable
